@@ -1,0 +1,59 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S4" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt">
+	<Page title="{i18n>coronaUSA}" showNavButton="true" navButtonPress="onNavBack" titleAlignment="Center">
+		<content>
+		
+						
+					<FlexBox alignItems="Start" justifyContent="Center">	
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Total Cases Tested" subheader="{allData>/0/totalTestResults}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Positive(+) Cases" subheader="{allData>/0/positive}"></NewsContent>
+						</content>
+					</TileContent>
+					</FlexBox>
+						
+					<FlexBox alignItems="Start" justifyContent="Center">	
+					
+				<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Hospitalized" subheader="{allData>/0/hospitalized}"></NewsContent>
+						</content>
+					</TileContent>
+					
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Deaths" subheader="{allData>/0/death}"></NewsContent>
+						</content>
+					</TileContent>
+				</FlexBox>
+					<Table id="idProductsTable" inset="false" items="{allState>/}">
+						<headerToolbar>
+							<Toolbar><ToolbarSpacer/><SearchField id="txtSearch" liveChange="onSearch" width="50%"/><Button id="btnSpeech" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/></Toolbar>
+						</headerToolbar>
+						<customData><sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" id="__data2" key="sap-ui-fastnavgroup" value="true" writeToDom="true"/></customData>
+						<columns>
+							<Column width="12em"><Text text="State"/></Column>
+							<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Total Cases Tested"/></Column>
+							<Column minScreenWidth="50px" demandPopin="true" hAlign="Initial"><Text text="Result + "/></Column>
+							<Column minScreenWidth="200px" demandPopin="true" hAlign="Begin"><Text text="Result -"/></Column>
+							<Column minScreenWidth="400px" demandPopin="true" hAlign="End"><Text text="Death"/></Column>
+							<Column minScreenWidth="600px" demandPopin="true" hAlign="End"><Text text="Hospitalized"/></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells><ObjectIdentifier title="{allState>state}"/><Text text="{allState>totalTestResults}"/><Text text="{allState>positive}"/><ObjectNumber number="{allState>negative}"/><Text text="{allState>death}"/><Text text="{allState>hospitalized}"/></cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+		</content>
+	</Page>
+</mvc:View>
+
+
+
+
+

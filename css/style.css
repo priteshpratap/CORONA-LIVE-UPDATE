@@ -1,0 +1,39 @@
+/* Enter your custom styles here */
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+
+.sapMMsgStripMessage>.sapMText {
+   animation:blinkingText 1.9s infinite;
+   text-shadow: 1px -1px 0px #252020;
+   box-shadow: 0 0 0px #EF5350;
+}
+
+.sapMObjectNumberEmph>.sapMObjectNumberText {
+    animation:blinkingText 1.2s infinite;
+}
+
+.sapMObjectNumberStatusError {
+    color: #b00;
+}
+
+.sapMTileCnt.News {
+    background-color: rgba(6,64,121,0.85);
+    height: 15%;
+}
+
+.sapMTileCnt.News .sapMNwC .sapMNwCSbh {
+    color: #fff;
+    line-height: normal;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: #000; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
+

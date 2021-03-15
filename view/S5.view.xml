@@ -1,0 +1,71 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S5" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	class="sapUiSizeCompact" xmlns:l="sap.ui.layout" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	
+	<Page title="{i18n>coronaItaly}" titleAlignment="Center" enableScrolling="true"  class="sapUiResponsivePadding--header"
+	navButtonPress="onNavBack" showNavButton="true">
+		<content>
+			         <FlexBox alignItems="Start" justifyContent="Center">
+	                   <TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Cases +" subheader="{allData>/0/totale_casi}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Total Cases Tested" subheader="{allData>/0/tamponi}"></NewsContent>
+						</content>
+					</TileContent>
+					</FlexBox>
+						<FlexBox alignItems="Start" justifyContent="Center">
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Hospitalized" subheader="{allData>/0/totale_ospedalizzati}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin">
+							
+						<content>
+							<NewsContent class="" contentText="Deaths" subheader="{allData>/0/deceduti}"></NewsContent>
+						</content>
+					</TileContent>
+					</FlexBox>
+					<!--<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Newly + " subheader="{allData>/0/nuovi_attualmente_positivi}"></NewsContent>
+						</content>
+					</TileContent>-->
+					
+					<Table id="idProductsTable" inset="false" items="{allItaly>/}">
+						<headerToolbar>
+							<Toolbar><ToolbarSpacer/>
+							<SearchField id="txtSearch" liveChange=".onSearch" width="50%"/>
+							<Button id="btnSpeech" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/>
+							</Toolbar>
+						</headerToolbar>
+						<customData>
+							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" id="__data2" key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+							</customData>
+						<columns>
+							<Column width="12em"><Text text="Region"/></Column>
+							<Column minScreenWidth="100px" demandPopin="true" hAlign="End"><Text text="Total Cases Tested"/></Column>
+							<Column minScreenWidth="300px" demandPopin="true"><Text text="Cases"/></Column>
+							<!--<Column minScreenWidth="450px" demandPopin="true" hAlign="Initial"><Text text="Newly +"/></Column>-->
+							<Column minScreenWidth="800px" demandPopin="true" hAlign="End"><Text text="Deaths"/></Column>
+							<Column minScreenWidth="650px" demandPopin="true" hAlign="Begin"><Text text="Hospitalized"/></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+								<ObjectIdentifier title="{allItaly>denominazione_regione}"/>
+								<Text text="{allItaly>tamponi}"/>
+								<Text text="{allItaly>totale_casi}"/>
+								<!--<Text text="{allItaly>nuovi_attualmente_positivi}"/>-->
+								<ObjectNumber number="{allItaly>deceduti}"/></cells>
+								<Text text="{allItaly>totale_ospedalizzati}"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+		</content>
+	
+	</Page>
+</mvc:View>

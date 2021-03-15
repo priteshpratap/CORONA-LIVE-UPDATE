@@ -1,0 +1,54 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S6" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	class="sapUiSizeCompact" xmlns:l="sap.ui.layout" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Page title="{i18n>homePageTitle}" titleAlignment="Center" enableScrolling="true" id="s1" class="sapUiResponsivePadding--header"
+		navButtonPress="onNavBack" showNavButton="true">
+		<!--<headerContent>
+			<Button icon="sap-icon://accidental-leave" tooltip="" />
+		</headerContent>-->
+		<content>
+			<Table id="idProductsTable" inset="false" items="{IndiaDistrict>/Result}">
+						<headerToolbar>
+							<Toolbar><ToolbarSpacer/>
+							<SearchField id="txtSearchS6" liveChange=".onSearch" width="50%"/>
+							<!--<Button id="btnSpeechS6" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/>-->
+							</Toolbar>
+						</headerToolbar>
+						<!--<customData>
+							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" id="__data2" key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+							</customData>-->
+						<columns>
+							<Column width="15em" >
+								<Text text="District"/>
+							</Column>
+							<Column minScreenWidth="15em" demandPopin="true" hAlign="Initial">
+								<Text text="No of Cases"/>
+								</Column>
+							<Column minScreenWidth="30em" demandPopin="true" hAlign="End">
+								<Text text="Today Confirmed Cases"/>
+								</Column>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+								<ObjectIdentifier title="{IndiaDistrict>district}"/>
+								<Text text="{IndiaDistrict>confirmed}"/>
+								<ObjectNumber number="{IndiaDistrict>delta/confirmed}" state="Error"/>
+
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<Link href="https://www.mohfw.gov.in/pdf/DistrictWiseList324.pdf" emphasized="true" target="Blank" text="District Reportings "
+						class="sapUiSmallMarginEnd"/>
+					<Link href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" emphasized="true" target="Blank" text="State Helpline No"
+						class="sapUiSmallMarginEnd"/>
+					<Link emphasized="true" target="Blank" text="Treatment" class="sapUiSmallMarginEnd" press="onTreatment" enabled="false"/>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

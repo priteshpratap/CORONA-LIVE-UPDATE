@@ -1,0 +1,153 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S1" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	class="sapUiSizeCompact" xmlns:l="sap.ui.layout" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	
+	<Page title="{i18n>homePageTitle}" titleAlignment="Center" enableScrolling="true" id="s1" class="sapUiResponsivePadding--header">
+		
+		<!--<headerContent>
+			<Button icon="sap-icon://accidental-leave" tooltip="" />
+		</headerContent>-->
+		<content>
+			
+		
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<GenericTile class="sapUiSmallMargin" width="auto" header="Across Globe Status" subheader="COVID-19"
+					press="onAcrossGlobe" sizeBehavior="small">
+					<TileContent>
+						<ImageContent src="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="sapUiSmallMargin" width="auto" header="India State Wise Status" subheader="COVID-19"
+					press="onNavToIndia" sizeBehavior="small">
+					<TileContent>
+						<ImageContent src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"/>
+					</TileContent>
+				</GenericTile>
+				</FlexBox>
+				<FlexBox alignItems="Start" justifyContent="Center">
+				<GenericTile class="sapUiSmallMargin" width="auto" header="USA State Wise Status" subheader="COVID-19"
+					press="onNavToUsa" sizeBehavior="small">
+					<TileContent >
+						<ImageContent src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="sapUiSmallMargin" width="auto" sizeBehavior="small" header="Italy State Wise Status" subheader="COVID-19"
+					press="onNavToItaly">
+					<TileContent>
+						<ImageContent src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg"/>
+					</TileContent>
+				</GenericTile>
+			</FlexBox>
+			<Label/>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<Label text="COVID-19 Across Globe as on :" design="Bold" class="sapUiSmallMarginEnd"/>
+				<Label id="idText" design="Bold" class="blinking"/>
+			</FlexBox >
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<TileContent class="sapUiSmallMargin">
+					<content>
+						<NewsContent class="sapUiSmallMarginEnd" contentText="No of cases worldwide:" subheader="{oAll>/cases}"></NewsContent>
+					</content>
+				</TileContent>
+				<TileContent class="sapUiSmallMargin">
+					<content>
+						<NewsContent class="sapUiSmallMarginEnd" contentText="No of Deaths worldwide:" subheader="{oAll>/deaths}"></NewsContent>
+					</content>
+				</TileContent>
+				<TileContent class="sapUiSmallMargin  sapUiVisibleOnlyOnDesktop">
+					<content>
+						<NewsContent class="sapUiResponsiveMargin  sapUiVisibleOnlyOnDesktop" contentText="No of patients Recovered:" subheader="{oAll>/recovered}"></NewsContent>
+					</content>
+				</TileContent>
+			</FlexBox>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<Label text="COVID-19 INDIA as on :" design="Bold" class="sapUiSmallMarginEnd"/>
+				<Label id="idText2" design="Bold" class="blinking"/>
+			</FlexBox >
+			<FlexBox alignItems="Start" justifyContent="Center">
+				
+				<TileContent footer="" id="idtileContent" class="sapUiSmallMargin">
+					<content>
+						<NewsContent class="" contentText="No of Cases" subheader="{odataIndiaTotal>/Result1}"></NewsContent>
+					</content>
+				</TileContent>
+				<TileContent class="sapUiSmallMargin">
+					<content>
+						<NewsContent class="" contentText="Number of Deaths" subheader="{odataIndiaTotal>/Result2}"></NewsContent>
+					</content>
+				</TileContent>
+				<TileContent class="sapUiSmallMargin sapUiVisibleOnlyOnDesktop">
+					<content>
+						<NewsContent class="" contentText="Today Deaths" subheader="{odataIndiaTotal>/Result4}"></NewsContent>
+					</content>
+				</TileContent>
+				<TileContent class="sapUiSmallMargin  sapUiVisibleOnlyOnDesktop">
+					<content>
+						<NewsContent class="" contentText="Recovered" subheader="{odataIndiaTotal>/Result3}"></NewsContent>
+					</content>
+				</TileContent>
+				
+				<TileContent class="sapUiSmallMargin  sapUiVisibleOnlyOnDesktop">
+					<content>
+						<NewsContent class="" contentText="Active Cases" subheader="{odataIndiaTotal>/Result5}"></NewsContent>
+					</content>
+				</TileContent>
+			</FlexBox>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<MessageStrip text="Helpline Number :+91-11-23978046" class="sapUiResponsiveMargin"/>
+				<MessageStrip text="Toll Free : 1075" class="sapUiResponsiveMargin"/>
+				<MessageStrip text="Helpline Email ID : ncov2019@gov.in" class="sapUiResponsiveMargin"/>
+			</FlexBox >
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<MessageStrip text="For any technical enquiry with respect to COVID19, you may kindly email on technicalquery.covid19@gov.in"
+					class="sapUiTinyMargin"/>
+			</FlexBox >
+			<!--<FlexBox alignItems="Start" justifyContent="Center">
+				<Title text="Awareness" titleStyle="H2"/>
+				<Title text="(Please click on slides to view PAF)" titleStyle="H4"/>
+			</FlexBox>-->
+			<FlexBox alignItems="Start" justifyContent="Center">
+			<Panel expandable="{device>/system/phone}"
+		expanded="{= !${device>/system/phone} }"  class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<OverflowToolbar height="3rem" style="Clear">
+						<Title text="Awareness" titleStyle="H4" id="oAwareness" />
+						<Title text="(Please click on slides to view PDF)" titleStyle="H6"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<content>
+					<Text/>
+					
+					<Carousel class="sapUiContentPadding" loop="true">
+						<!--pageChanged="onPageChange" -->
+						<pages>
+						
+							<Image src="img/covid1.png" alt="Example picture of speakers" press="onImg1Press"/>
+							<Image src="img/covid2.png" alt="Example picture of USB flash drive" press="onImg2Press"/>
+							<Image src="img/covid3.png" alt="Example picture of spotlight" press="onImg3Press"/>
+							<Image src="img/covid4.png" alt="Example picture of screw" press="onImg4Press"/>
+							<Image src="img/covid5.png" alt="Example picture of screw" press="onImg5Press"/>
+							<Image src="img/covid6.png" alt="Example picture of screw" press="onImg6Press"/>
+							
+						</pages>
+					</Carousel>
+				</content>
+			</Panel>
+			</FlexBox>
+			
+		<!--</l:content>
+		</l:Grid>-->
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<Link href="https://www.mohfw.gov.in/pdf/DistrictWiseList324.pdf" emphasized="true" target="Blank" text="District Reportings "
+						class="sapUiSmallMarginEnd"/>
+					<Link href="https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf" emphasized="true" target="Blank" text="State Helpline No"
+						class="sapUiSmallMarginEnd"/>
+					<Link  emphasized="true" target="Blank" text="Treatment" 
+						class="sapUiSmallMarginEnd" press="onTreatment" enabled="false"/>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

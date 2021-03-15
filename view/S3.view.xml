@@ -1,0 +1,68 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S3" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt">
+	<Page title="{i18n>coronaIndia}" titleAlignment="Center" navButtonPress="onNavBack"
+		showNavButton="true" enableScrolling="true" id="s3">
+
+		<content>
+				<FlexBox alignItems="Start" justifyContent="Center">
+			    <TileContent footer="" id="idtileContent" class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="No of Cases" subheader="{odataTile>/Result1}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="Number of Deaths" subheader="{odataTile>/Result2}"></NewsContent>
+						</content>
+					</TileContent>
+					</FlexBox>
+						<FlexBox alignItems="Start" justifyContent="Center">
+					<TileContent class="sapUiSmallMargin  ">
+						<content>
+							<NewsContent class="" contentText="Recovered" subheader="{odataTile>/Result3}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin  ">
+						<content>
+							<NewsContent class="" contentText="Today Deaths" subheader="{odataTile>/Result4}"></NewsContent>
+						</content>
+					</TileContent>
+					<!--<TileContent class="sapUiSmallMargin  sapUiVisibleOnlyOnDesktop">
+						<content>
+							<NewsContent class="" contentText="Active Cases" subheader="{odataIndiaTotal>/active}"></NewsContent>
+						</content>
+					</TileContent>-->
+					</FlexBox>
+					<Table id="idProductsTable" inset="false" items="{odataTab>/statewise}">
+						<headerToolbar>
+							<Toolbar><ToolbarSpacer/>
+							<SearchField id="txtSearch" liveChange=".onSearch" width="50%"/>
+							<Button id="btnSpeech" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/>
+							</Toolbar>
+						</headerToolbar>
+						<customData>
+							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" id="__data2" key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+							</customData>
+						<columns>
+							<Column width="12em" ><Text text="State"/></Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" ><Text text="No of Cases"/></Column>
+							<Column minScreenWidth="50px" demandPopin="true" hAlign="End"><Text text="Death"/></Column>
+							<Column minScreenWidth="50px" demandPopin="true" hAlign="End"><Text text="Cured"/></Column>
+						    <Column hAlign="End"><Text text="Last Updated"/></Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onColNav">
+								<cells>
+								<ObjectIdentifier title="{odataTab>state}"/>
+								<Text text="{odataTab>confirmed}"/>
+								<ObjectNumber number="{odataTab>deaths}" state="Error"/>
+								<Text text="{odataTab>recovered}"/>
+								<Text text="{odataTab>lastupdatedtime}"/>
+									</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+			
+		</content>
+	
+	</Page>
+</mvc:View>

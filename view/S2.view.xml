@@ -1,0 +1,57 @@
+<mvc:View controllerName="CORONA-LIVE-UPDATE.controller.S2" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<Page title="{i18n>AcrossGlobe}" class="sapUiResponsiveContentPadding" titleAlignment="Center" navButtonPress="onNavBack" enableScrolling="true"
+		showNavButton="true" id="s2">
+		<content>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="No.of Cases:" subheader="{oAll>/cases}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin">
+						<content>
+							<NewsContent class="" contentText="No.of Deaths :" subheader="{oAll>/deaths}"></NewsContent>
+						</content>
+					</TileContent>
+					<TileContent class="sapUiSmallMargin   sapUiVisibleOnlyOnDesktop">
+						<content>
+							<NewsContent class="" contentText="Recovered :" subheader="{oAll>/recovered}"></NewsContent>
+						</content>
+					</TileContent>
+				
+			</FlexBox>
+			<Label/>
+			<Table id="idProductsTable" inset="false" items="{allCountries>/}">
+				<headerToolbar>
+					<Toolbar><ToolbarSpacer/>
+					<SearchField id="txtSearchS2" width="50%" placeholder="Search by Country" liveChange=".onSearch"/>
+					<Button id="btnSpeechS2" icon="sap-icon://microphone" press="_searchBySpeech" type="Emphasized" tooltip="Speak"/>
+					</Toolbar>
+				</headerToolbar>
+					<customData>
+							<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" id="__data2" key="sap-ui-fastnavgroup" value="true" writeToDom="true"/>
+							</customData>
+				<columns>
+					<Column width="12em"><Text text="Country"/></Column>
+					<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Cases"/></Column>
+					<Column minScreenWidth="50px" demandPopin="true" hAlign="Initial"><Text text="Today Cases"/></Column>
+					<Column minScreenWidth="200px" demandPopin="true" hAlign="Begin"><Text text="Total Deaths"/></Column>
+					<Column minScreenWidth="300px" demandPopin="true" hAlign="End"><Text text="Today Deaths"/></Column>
+					<Column minScreenWidth="600px" demandPopin="true" hAlign="End"><Text text="Recovered"/></Column>
+					<Column minScreenWidth="800px" demandPopin="true" hAlign="Left"><Text text="Active"/></Column>
+					<Column minScreenWidth="1000px" demandPopin="true" hAlign="End"><Text text="Critical Cases"/></Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells><ObjectIdentifier title="{allCountries>country}"/>
+						<Text text="{allCountries>cases}"/>
+						<Text text="{allCountries>todayCases}"/>
+						<ObjectNumber number="{allCountries>deaths}"/>
+						<Text text="{allCountries>todayDeaths}"/><Text text="{allCountries>recovered}"/><Text text="{allCountries>active}"/><Text text="{allCountries>critical}"/></cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

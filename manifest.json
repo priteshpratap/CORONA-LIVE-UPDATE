@@ -1,0 +1,173 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "CORONA-LIVE-UPDATE",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "CORONA-LIVE-UPDATE.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "View1"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "CORONA-LIVE-UPDATE.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css",
+					"id": ""
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "CORONA-LIVE-UPDATE.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "S1",
+					"pattern": "",
+					"target": [
+						"TargetS1"
+					]
+				},
+				{
+					"name": "S2",
+					"pattern": "S2",
+					"target": [
+						"TargetS2"
+					]
+				},
+				{
+					"name": "S3",
+					"pattern": "S3",
+					"target": [
+						"TargetS3"
+					]
+				},
+				{
+					"name": "S4",
+					"pattern": "S4",
+					"target": [
+						"TargetS4"
+					]
+				},
+				{
+					"name": "S5",
+					"pattern": "S5",
+					"target": [
+						"TargetS5"
+					]
+				},
+				{
+					"name": "S6",
+					"pattern": "S6/{oState}",
+					"target": [
+						"TargetS6"
+					]
+				}
+			],
+			"targets": {
+				"TargetS1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page1",
+					"viewName": "S1"
+				},
+				"TargetS2": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page2",
+					"viewName": "S2"
+				},
+				"TargetS3": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page3",
+					"viewName": "S3"
+				},
+				"TargetS4": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page4",
+					"viewName": "S4"
+				},
+				"TargetS5": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page5",
+					"viewName": "S5"
+				},
+				"TargetS6": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "page6",
+					"viewName": "S6"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
